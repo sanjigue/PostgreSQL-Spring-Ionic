@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.santiago.users.entity.models.Partner;
 import com.santiago.users.entity.models.User;
+import com.santiago.users.entity.services.IPartnerService;
 import com.santiago.users.entity.services.IUserService;
 
 @CrossOrigin(origins = {"*"})
@@ -21,6 +23,9 @@ public class UserController{
 	
 	@Autowired
 	IUserService userService;
+	
+	@Autowired
+	IPartnerService partnerService;
 	
 	@GetMapping("/users")
 	public List<User> getAllUsers(){
@@ -34,6 +39,9 @@ public class UserController{
 	
 	@PostMapping("/user")
 	public void add(@RequestBody User user) {
+
+		partnerService.post(user.partner);
+		
 		userService.post(user);
 	}
 	

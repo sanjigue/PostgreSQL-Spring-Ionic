@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -34,8 +35,12 @@ public class User implements Serializable{
 	
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", nullable = false)
-	@JsonIgnoreProperties({ "user", "name" ,"countryId"})
-	private Partner partner;
+	//@JsonIgnoreProperties({ "partner"})
+	@JsonIgnoreProperties({ "id", "user", "name" ,"countryId","createUid"})
+	public Partner partner;
+	
+	@NotNull
+	private Integer partnerId;
 
 	public long getId() {
 		return id;
@@ -69,13 +74,24 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
 
-	public User(long id, @NotEmpty String login, @NotEmpty String password,	 Partner partner) {
+	public Integer getPartnerId() {
+		return partnerId;
+	}
+
+	public void setPartnerId(Integer partnerId) {
+		this.partnerId = partnerId;
+	}
+
+	public User(long id, @NotEmpty String login, @NotEmpty String password,	 Partner partner, @NotNull Integer partnerId) {
 		super();
 		this.id = id;
 		this.login = login;
 		this.password = password;
 		this.partner = partner;
+		this.partnerId = partnerId;
 	}
 
 	public User() {
