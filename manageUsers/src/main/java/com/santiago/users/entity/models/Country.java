@@ -28,20 +28,14 @@ public class Country implements Serializable{
 	@NotEmpty
 	private String name;
 	
-	@NotNull
-	private Integer writeUid;
 	
-	@NotNull
-	private Integer createUid;
 
-	public Country(long id, @NotEmpty String code, @NotEmpty String name, @NotNull Integer writeUid,
-			@NotNull Integer createUid) {
+	public Country(long id, @NotEmpty String code, @NotEmpty String name) {
 		super();
 		this.id = id;
 		this.code = code;
 		this.name = name;
-		this.writeUid = writeUid;
-		this.createUid = createUid;
+		
 	}
 
 	public Country() {
@@ -70,25 +64,6 @@ public class Country implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Integer getWriteUid() {
-		return writeUid;
-	}
-
-	public void setWriteUid(Integer writeUid) {
-		this.writeUid = writeUid;
-	}
-
-	public Integer getCreateUid() {
-		return createUid;
-	}
-
-	public void setCreateUid(Integer createUid) {
-		this.createUid = createUid;
-	}
-	
-	
-	
+	}	
 	
 }

@@ -38,10 +38,7 @@ public class UserController{
 	}
 	
 	@PostMapping("/user")
-	public void add(@RequestBody User user) {
-
-		partnerService.post(user.partner);
-		
+	public void add(@RequestBody User user) {		
 		userService.post(user);
 	}
 	

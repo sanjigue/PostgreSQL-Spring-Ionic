@@ -1,0 +1,11 @@
+spring.datasource.url= jdbc:postgresql://192.168.201.62:5432/ProjectDB
+spring.datasource.username=postgres
+spring.datasource.password=sjglp123
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto = none
+spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+server.port = 8090
+# spring.datasource.driver-class-name=org.postgresql.Driver 
+# spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect 
+# spring.jpa.hibernate.ddl-auto=none
+# logging.level.org.hibernate.SQL=debug

@@ -1,0 +1,45 @@
+<!--
+  Generated template for the PartnersPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+
+  *ngFor="let b of bicycles"
+
+  <h2>{{b.name}}</h2>
+        <p>Year: {{b.year}}</p>
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Partners</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list >
+    <ion-item-sliding >
+      <ion-item  text-wrap  *ngFor="let partner of partners">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-9>
+              <div (click)="getItemId(partner.id)">
+                <h2 id="partnerId" class="titleItem" >{{partner.id}}</h2>
+                <h2 id="partnerName" class="titleItem">{{partner.name}}</h2>
+                
+              </div>
+            </ion-col>
+            <ion-col col-3>
+              <button bottonTrash ion-button color="danger" (click)="deletePartnerButton(partner.id)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

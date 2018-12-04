@@ -3,4 +3,7 @@
 <fullyQualifiedTypeName name="com.santiago.users.entity.services.IPartnerService"/>
 <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
 <fullyQualifiedTypeName name="com.santiago.users.entity.models.Partner"/>
+<fullyQualifiedTypeName name="com.santiago.users.entity.dao.IPartnerDao"/>
+<fullyQualifiedTypeName name="javax.persistence.Column"/>
+<fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
 </qualifiedTypeNameHistroy>

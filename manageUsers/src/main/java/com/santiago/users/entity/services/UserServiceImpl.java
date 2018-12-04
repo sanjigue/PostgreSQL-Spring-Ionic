@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.santiago.users.entity.dao.IPartnerDao;
 import com.santiago.users.entity.dao.IUserDao;
 import com.santiago.users.entity.models.User;
 
@@ -13,6 +14,9 @@ public class UserServiceImpl implements IUserService{
 
 	@Autowired
 	private IUserDao userDao;
+	
+	@Autowired
+	private IPartnerDao partnerDao;
 	
 	@Override
 	public User get(long id) {
@@ -26,7 +30,14 @@ public class UserServiceImpl implements IUserService{
 
 	@Override
 	public void post(User user) {
-		userDao.save(user);
+		
+		partnerDao.save(user.getPartner());
+		
+		User user1 = userDao.save(user);
+
+		user.getPartner().setUser(user1);
+		
+		partnerDao.save(user.getPartner());
 	}
 
 	@Override

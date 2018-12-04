@@ -34,13 +34,9 @@ public class User implements Serializable{
 	private String password;
 	
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id", nullable = false)
-	//@JsonIgnoreProperties({ "partner"})
-	@JsonIgnoreProperties({ "id", "user", "name" ,"countryId","createUid"})
-	public Partner partner;
-	
-	@NotNull
-	private Integer partnerId;
+    @JoinColumn(name = "partnerId", nullable = false)
+	//@JsonIgnoreProperties({ "id", "user", "name" ,"countryId","createUid"})
+	private Partner partner;
 
 	public long getId() {
 		return id;
@@ -74,24 +70,13 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
-	public Integer getPartnerId() {
-		return partnerId;
-	}
-
-	public void setPartnerId(Integer partnerId) {
-		this.partnerId = partnerId;
-	}
-
-	public User(long id, @NotEmpty String login, @NotEmpty String password,	 Partner partner, @NotNull Integer partnerId) {
+	public User(long id, @NotEmpty String login, @NotEmpty String password,	 Partner partner) {
 		super();
 		this.id = id;
 		this.login = login;
 		this.password = password;
 		this.partner = partner;
-		this.partnerId = partnerId;
 	}
 
 	public User() {
