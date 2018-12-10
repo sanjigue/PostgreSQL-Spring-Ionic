@@ -1,18 +1,46 @@
-<!--
-  Generated template for the UsersPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="chargeAll()">
+            <ion-icon name="refresh-circle"></ion-icon>
+          </button>
+      <button  ion-button icon-only (click)="goToAdd()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Users</ion-title>
+    
   </ion-navbar>
 
 </ion-header>
 
+<ion-content padding card>
 
-<ion-content padding>
+
+  <ion-list class="backgroundsss">
+    <ion-item-sliding >
+      <ion-item text-wrap class="item item-trns" *ngFor="let user of users">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-9>
+              <div (click)="getItemId(user.id)">
+                <h2 id="userId" class="titleItem">{{user.id}}</h2>
+                <h2 id="userLogin" class="titleItem">{{user.login}}</h2>
+              </div>
+            </ion-col>
+            <ion-col col-3>
+              <button bottonTrash ion-button color="danger" (click)="deleteUserButton(user.id)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+    </ion-item-sliding>
+  </ion-list>
+
 
 </ion-content>
+

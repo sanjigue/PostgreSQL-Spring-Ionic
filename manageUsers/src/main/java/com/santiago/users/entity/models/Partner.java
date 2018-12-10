@@ -32,32 +32,40 @@ public class Partner implements Serializable{
 	@NotEmpty
 	private String name;
 	
-	 @OneToOne(fetch = FetchType.LAZY,
+	@OneToOne(fetch = FetchType.LAZY,
 	            cascade =  CascadeType.ALL)
 //	            ,
 //	            mappedBy = "partner")
 	@JoinColumn(name = "user_id")
-	@JsonIgnoreProperties({ "partner", "login" ,"password"})
+	@JsonIgnoreProperties({ "partner"})
 	private User user;
 
 	@NotNull
 	@Column(name = "country_id")
 	private Integer countryId;
 
+	@NotEmpty
+	private String email;
+	
+	@NotEmpty
+	private String phone;
+	
 	@NotNull
 	@Column(name = "create_uid")
 	private Integer createUid;
-
 	
 
-	public Partner(long id, @NotEmpty String name, User user, @NotNull Integer countryId, @NotNull Integer createUid) {
+	public Partner(long id, @NotEmpty String name, User user, @NotNull Integer countryId, @NotEmpty String email,
+			@NotEmpty String phone, @NotNull Integer createUid) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.user = user;
 		this.countryId = countryId;
+		this.email = email;
+		this.phone = phone;
 		this.createUid = createUid;
-	}
+	}	
 
 	public Partner() {
 		
@@ -101,6 +109,22 @@ public class Partner implements Serializable{
 
 	public void setCreateUid(Integer createUid) {
 		this.createUid = createUid;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	

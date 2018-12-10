@@ -24,4 +24,8 @@ export class PartnerService {
   add(partner: any){
     return this.http.post(this.url, partner);
   }
+
+  update(partner: any, partnerId: number): Observable<any> {
+    return this.http.put(this.url + '/' + partnerId, partner);
+  }
 }

@@ -11,13 +11,17 @@
 
 ion-list .item {
 
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 0px;
-      background: rgba(247,247,247, 0.5);
-      font-size: 16px;
-      border-style: solid;
-      padding-left: 0px;
-  }
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    background: rgba(247,247,247, 0.5);
+    font-size: 16px;
+    border-style: solid;
+    padding-left: 0px;
+}
+
+.marginIcon{
+    margin-left: 20px;
+}
 
 
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, MenuController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the TabsPage tabs.
@@ -19,6 +20,21 @@ export class TabsPage {
   usersRoot = 'UsersPage'
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public menu: MenuController) {}
 
+  openMenu() {
+    this.menu.open();
+  }
+
+  closeMenu() {
+    this.menu.close();
+  }
+
+  toggleMenu() {
+    this.menu.toggle();
+  }
+  logout(){
+    console.log("Loged out");
+    this.navCtrl.pop();
+  }
 }

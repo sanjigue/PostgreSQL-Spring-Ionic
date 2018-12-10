@@ -8,34 +8,44 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-//import { PartnersPage } from '../pages/partners/partners';
+import { AddPartnerPage } from '../pages/add-partner/add-partner';
 
 
 import { PartnersPageModule } from '../pages/partners/partners.module';
-
+import { AddPartnerPageModule } from '../pages/add-partner/add-partner.module';
+import { UpdatePartnerPageModule } from '../pages/update-partner/update-partner.module';
 import { PartnerService } from '../providers/partner-service';
+
+import { UsersPageModule } from '../pages/users/users.module';
+import { AddUserPageModule } from '../pages/add-user/add-user.module';
+import { UserService } from '../providers/user-service';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     TabsPage,
-    //PartnersPage
+    //AddPartnerPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    PartnersPageModule
+    PartnersPageModule,
+    UsersPageModule,
+    AddPartnerPageModule,
+    AddUserPageModule,
+    UpdatePartnerPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     TabsPage,
-    //PartnersPage
+    //AddPartnerPage
   ],
   providers: [PartnerService,
+    UserService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

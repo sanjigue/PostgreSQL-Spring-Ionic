@@ -1,7 +1,7 @@
 ion-content, html {
     height: 100%;
     background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(105, 145, 162), rgb(12, 97, 33));
+    background-image: linear-gradient( rgb(105, 145, 162), rgb(12, 97, 33));
 }
 
 .card-container.card {
@@ -18,11 +18,12 @@ ion-content, html {
     cursor: default;
 }
 
+
 /*
  * Card component
  */
 .card {
-    background: rgba(247,247,247, 0.5);
+    background: rgba(247,247,247, 0.1);
     
     /* just in case there no content*/
     padding: 20px 25px 30px;
@@ -127,12 +128,3 @@ ion-content, html {
     background-color: rgb(12, 97, 33);
 }
 
-.forgot-password {
-    color: rgb(104, 145, 162);
-}
-
-.forgot-password:hover,
-.forgot-password:active,
-.forgot-password:focus{
-    color: rgb(12, 97, 33);
-}

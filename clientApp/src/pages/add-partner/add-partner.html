@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Partner</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form [formGroup]="myForm" (ngSubmit)="saveData()">
+      <ion-list>
+        <ion-item>
+          <ion-icon name="person" item-start></ion-icon>
+          <ion-input formControlName="name" type="text" placeholder="Name" [(ngModel)]="name" name="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="mail" item-start></ion-icon>
+          <ion-input formControlName="email" type="email" placeholder="Email" [(ngModel)]="email" name="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="call" item-start></ion-icon>
+          <ion-input formControlName="phone" type="text" placeholder="Phone" [(ngModel)]="phone" name="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="contact" item-start></ion-icon>
+          <ion-input formControlName="currentUser" type="number" placeholder="Current user id" [(ngModel)]="createUid" name="createUid"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="flag" item-start></ion-icon>
+          <ion-input formControlName="country" type="number" placeholder="Country id" [(ngModel)]="countryId" name="countryId"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div padding>
+        <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+      </div>
+    </form>
+</ion-content>

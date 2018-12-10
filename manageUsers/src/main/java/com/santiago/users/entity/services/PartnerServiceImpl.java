@@ -1,7 +1,7 @@
 package com.santiago.users.entity.services;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.santiago.users.entity.dao.IPartnerDao;
 import com.santiago.users.entity.dao.IUserDao;
 import com.santiago.users.entity.models.Partner;
-import com.santiago.users.entity.models.User;
+
 
 @Service
 public class PartnerServiceImpl implements IPartnerService{
@@ -32,7 +32,7 @@ public class PartnerServiceImpl implements IPartnerService{
 
 	@Override
 	public void post(Partner partner) {
-		partnerDao.save(partner);
+		partnerDao.save(partner);	
 	}
 
 	@Override
@@ -45,10 +45,9 @@ public class PartnerServiceImpl implements IPartnerService{
 
 	@Override
 	public void delete(long id) {
-		
 		userDao.deleteByPartnerId(id);
-		System.out.println("DELETED");
+		System.out.println("DELETED USER");
 		partnerDao.deleteById(id);
-		
+		System.out.println("DELETED PARTNER");
 	}
 }

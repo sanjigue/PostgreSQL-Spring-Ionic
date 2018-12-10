@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
+import { UserService} from '../../providers/user-service';
+import { AddUserPage } from '../add-user/add-user';
+
 /**
  * Generated class for the UsersPage page.
  *
@@ -15,11 +19,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UsersPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private users: Array<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public userService: UserService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UsersPage');
+
+    this.chargeAll();
   }
 
+  chargeAll(){
+    this.userService.getAllUsers().subscribe(users => {
+      this.users = users;
+    })
+  }
+
+  deleteUserButton(id){
+    console.log("ME DIO EL ID: "+id);
+     this.userService.remove(id).subscribe(response => {
+       console.log("DELETEADO");
+       this.ionViewDidLoad();
+     });
+     
+  }
+
+  goToAdd(){
+    console.log("fui a add user");
+    this.navCtrl.push(AddUserPage);
+  }
 }

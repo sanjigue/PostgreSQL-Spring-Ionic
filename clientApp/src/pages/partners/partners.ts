@@ -2,6 +2,11 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { PartnerService } from '../../providers/partner-service';
+import { AddPartnerPage } from '../add-partner/add-partner';
+import { UpdatePartnerPage } from '../update-partner/update-partner';
+import { Partner } from '../../models/partner';
+
+
 /**
  * Generated class for the PartnersPage page.
  *
@@ -19,29 +24,46 @@ export class PartnersPage {
   private partners: Array<any>;
   partnerId: any;
 
+
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public partnerService: PartnerService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PartnersPage');
+    this.chargeAll();
+  }
+
+  chargeAll(){
     this.partnerService.getAllPartners().subscribe(partners => {
       this.partners = partners;
     })
   }
 
+
+
   deletePartnerButton(id){
     console.log("PAPA ME DIO EL ID: "+id);
      this.partnerService.remove(id).subscribe(response => {
        console.log("DELETEADO PAPA");
-       this.ionViewDidLoad();
+       this.chargeAll();
      });
      
   }
 
-  getItemId(id: any) {
-    console.log("ID: " + id);
-    this.partnerId = id;
+  getItemId(partner: Partner) {
+    // console.log("ID: " + id);
+    // this.partnerId = id;
 
+    this.navCtrl.push(UpdatePartnerPage,{partner: partner, "parentPage": this})
   }
+
+  goToAdd(){
+    console.log("fui a add partner");
+    this.navCtrl.push(AddPartnerPage);
+  }
+  
 }
+
