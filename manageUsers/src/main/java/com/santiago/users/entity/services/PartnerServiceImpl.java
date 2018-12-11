@@ -39,6 +39,7 @@ public class PartnerServiceImpl implements IPartnerService{
 	public void put(Partner partner, long id) {
 		partnerDao.findById(id).ifPresent((x)->{
 			partner.setId(id);
+			partner.setUser(x.getUser());
 			partnerDao.save(partner);
 		});
 	}

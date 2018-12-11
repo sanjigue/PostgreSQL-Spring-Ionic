@@ -24,4 +24,8 @@ export class UserService {
   add(user: any){
     return this.http.post(this.url, user);
   }
+
+  update(user: any, userId: number): Observable<any> {
+    return this.http.put(this.url + '/' + userId, user);
+  }
 }

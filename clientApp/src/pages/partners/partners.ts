@@ -53,7 +53,7 @@ export class PartnersPage {
      
   }
 
-  getItemId(partner: Partner) {
+  updatePartner(partner: Partner) {
     // console.log("ID: " + id);
     // this.partnerId = id;
 

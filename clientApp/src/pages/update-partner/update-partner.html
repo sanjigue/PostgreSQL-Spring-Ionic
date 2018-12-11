@@ -30,15 +30,16 @@
           </ion-item>
           <ion-item>
             <ion-icon name="contact" item-start></ion-icon>
-            <ion-input  type="number" placeholder="Current user id" required  [(ngModel)]="partner.createUid" name="createUid" #createUid></ion-input>
+            <ion-input  type="number" placeholder="User who creates" required readonly [(ngModel)]="partner.createUid" name="createUid" #createUid></ion-input>
           </ion-item>
           <ion-item>
             <ion-icon name="flag" item-start></ion-icon>
             <ion-input  type="number" placeholder="Country id" required  [(ngModel)]="partner.countryId" name="countryId" #countryId></ion-input>
           </ion-item>
+          
         </ion-list>
         <div padding>
-          <button ion-button block type="submit" [disabled]="!partnerForm.form.valid">Guardar</button>
+          <button ion-button block type="submit" [disabled]="!partnerForm.form.valid">Save</button>
         </div>
       </form>
 </ion-content>

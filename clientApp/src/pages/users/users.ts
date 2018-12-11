@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { UserService} from '../../providers/user-service';
 import { AddUserPage } from '../add-user/add-user';
+import { UpdateUserPage } from '../update-user/update-user';
+import { User } from '../../models/user';
 
 /**
  * Generated class for the UsersPage page.
@@ -44,6 +46,10 @@ export class UsersPage {
        this.ionViewDidLoad();
      });
      
+  }
+
+  goToUpdate(user: User){
+    this.navCtrl.push(UpdateUserPage,{user: user, "parentPage": this})
   }
 
   goToAdd(){

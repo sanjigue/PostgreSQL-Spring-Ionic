@@ -18,6 +18,7 @@ import { PartnerService } from '../providers/partner-service';
 
 import { UsersPageModule } from '../pages/users/users.module';
 import { AddUserPageModule } from '../pages/add-user/add-user.module';
+import { UpdateUserPageModule } from '../pages/update-user/update-user.module';
 import { UserService } from '../providers/user-service';
 
 @NgModule({
@@ -35,7 +36,8 @@ import { UserService } from '../providers/user-service';
     UsersPageModule,
     AddPartnerPageModule,
     AddUserPageModule,
-    UpdatePartnerPageModule
+    UpdatePartnerPageModule,
+    UpdateUserPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
