@@ -22,7 +22,7 @@ export class AddPartnerPage {
 
   myForm: FormGroup;
 
-  partner: any = {name:'',email:'',phone:'',createUid: null,countryId: null};
+  partner: any = {name:'',email:'',phone:'',createUid: null,country: {id: null}};
 
   name: string;
   email: string;
@@ -46,7 +46,7 @@ export class AddPartnerPage {
   saveData(){
     console.log(this.myForm.value);
 
-    this.partner= {name: this.name,email: this.email ,phone: this.phone ,createUid: this.createUid ,countryId: this.countryId};
+    this.partner= {name: this.name,email: this.email ,phone: this.phone ,createUid: this.createUid ,country: {id: this.countryId}};
 
     this.partnerService.add(this.partner).subscribe(response => {
       console.log("Se añadio");

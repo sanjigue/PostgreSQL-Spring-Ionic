@@ -9,6 +9,8 @@ export class PartnerService {
   constructor(public http: HttpClient) {
   }
 
+
+
   getAllPartners(): Observable<any> {
     return this.http.get(this.url + 's');
   }
@@ -28,4 +30,5 @@ export class PartnerService {
   update(partner: any, partnerId: number): Observable<any> {
     return this.http.put(this.url + '/' + partnerId, partner);
   }
+  
 }

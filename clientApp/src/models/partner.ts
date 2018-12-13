@@ -1,4 +1,5 @@
 import { User } from "./user";
+import { Country } from "./country";
 
 export class Partner {
     id: number;//no se si quitarlo de aqui el id
@@ -6,7 +7,7 @@ export class Partner {
     email: string;
     phone: string;
     createUid: number;//creo que lo tengo que quitar
-    countryId: number;
+    country: Country;
     user:User;
     constructor(values: Object = {}) {
         Object.assign(this, values);

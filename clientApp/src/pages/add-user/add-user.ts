@@ -24,7 +24,7 @@ export class AddUserPage {
   user: any = {
     login: '', password: '', partner: {
 
-      name: '', email: '', phone: '', createUid: null, countryId: null
+      name: '', email: '', phone: '', createUid: null, country: {id : null}
     }
 
   };
@@ -35,6 +35,7 @@ export class AddUserPage {
   phone: string;
   createUid: number;
   countryId: number;
+
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -53,7 +54,7 @@ export class AddUserPage {
     this.user = {
       login: this.login, password: this.password, partner: {
 
-        name: this.name, email: this.login, phone: this.phone, createUid: this.createUid, countryId: this.countryId
+        name: this.name, email: this.login, phone: this.phone, createUid: this.createUid, country: {id: this.countryId}
       }
 
     };

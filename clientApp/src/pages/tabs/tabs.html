@@ -6,16 +6,25 @@
                 <button ion-button icon-only (click)="closeMenu()">
                     <ion-icon name="close"></ion-icon>
                 </button>
+
             </ion-buttons>
         </ion-toolbar>
     </ion-header>
     <ion-content>
-
-            <button class="marginIcon" ion-button icon-only (click)="logout()">
-                <ion-icon name="log-out"></ion-icon>
-                <p>Cerrar sesion  </p>
-            </button>
-
+        <ion-list>
+            <div>
+                <button class="marginTopButton"  ion-button icon-only full (click)="logout()">
+                    <ion-icon name="log-out"></ion-icon>
+                    <p>Cerrar sesion </p>
+                </button>
+            </div>
+            <div>
+                <button class="marginTopButton" icon-only full ion-button iocn-only (click)="goToGallery()">
+                        <ion-icon name="images"></ion-icon>
+                        <p> Gallery</p>
+                </button>
+            </div>
+        </ion-list>
     </ion-content>
 </ion-menu>
 <ion-nav #content [root]="rootPage"></ion-nav>

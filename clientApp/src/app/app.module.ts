@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AddPartnerPage } from '../pages/add-partner/add-partner';
 
+import { GalleryPageModule } from '../pages/gallery/gallery.module';
 
 import { PartnersPageModule } from '../pages/partners/partners.module';
 import { AddPartnerPageModule } from '../pages/add-partner/add-partner.module';
@@ -37,7 +38,8 @@ import { UserService } from '../providers/user-service';
     AddPartnerPageModule,
     AddUserPageModule,
     UpdatePartnerPageModule,
-    UpdateUserPageModule
+    UpdateUserPageModule,
+    GalleryPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

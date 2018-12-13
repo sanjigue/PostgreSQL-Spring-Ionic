@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, MenuController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { GalleryPage } from '../gallery/gallery';
 
 /**
  * Generated class for the TabsPage tabs.
@@ -36,5 +37,10 @@ export class TabsPage {
   logout(){
     console.log("Loged out");
     this.navCtrl.pop();
+  }
+
+  goToGallery(){
+    console.log("Go to gallery");
+    this.navCtrl.push(GalleryPage);
   }
 }
