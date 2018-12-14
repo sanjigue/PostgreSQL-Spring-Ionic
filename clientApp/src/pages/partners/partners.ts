@@ -5,6 +5,7 @@ import { PartnerService } from '../../providers/partner-service';
 import { AddPartnerPage } from '../add-partner/add-partner';
 import { UpdatePartnerPage } from '../update-partner/update-partner';
 import { Partner } from '../../models/partner';
+import { TabsPage } from '../tabs/tabs';
 
 
 /**
@@ -24,16 +25,16 @@ export class PartnersPage {
   private partners: Array<any>;
   partnerId: any;
 
-
-
-
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public partnerService: PartnerService) {
+
   }
 
   ionViewDidLoad() {
+    
     console.log('ionViewDidLoad PartnersPage');
-    this.chargeAll();
+      this.chargeAll();
+    
   }
 
   chargeAll(){

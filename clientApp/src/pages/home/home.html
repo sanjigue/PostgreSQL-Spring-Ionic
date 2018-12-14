@@ -5,25 +5,57 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
+<!--<span id="reauth-email" class="reauth-email"></span>-->
+<!-- (click)="goToTabs()" -->
+<!-- <ion-content padding>
   <div class="container">
     <div class="card card-container">
       <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
       <p id="profile-name" class="profile-name-card"></p>
-      <form class="form-signin">
-        <!--<span id="reauth-email" class="reauth-email"></span>-->
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <form class="form-signin" [formGroup]="myForm" (ngSubmit)="saveData()">
+        
+        <ion-input type="email" formControlName="login" id="inputEmail" class="form-control inputIon" placeholder="Email address" [(ngModel)]="login" required autofocus></ion-input>
+        <ion-input type="password" formControlName="password" id="inputPassword" class="form-control inputIon" placeholder="Password" [(ngModel)]="password" required></ion-input>
 
-        <div id="remember" class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
         <br>
-        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="goToTabs()">Sign in</button>
+        
+        <button ion-button block class="btn btn-lg btn-primary btn-block btn-signin" type="submit" [disabled]="!myForm.valid" >Sign in</button>
       </form>
+    </div>
+  </div>
+</ion-content> -->
+
+<ion-content padding>
+
+  <div class="container">
+    <div class="card card-container">
+
+      <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+
+
+      <form [formGroup]="myForm" (ngSubmit)="goToTabs(myForm)">
+        <ion-list>
+          <ion-item>
+
+            <ion-input formControlName="login" type="text" placeholder="Email" [(ngModel)]="login" name="login"></ion-input>
+          </ion-item>
+
+          <ion-item>
+
+            <ion-input formControlName="password" type="password" placeholder="Password" [(ngModel)]="password" name="password"></ion-input>
+          </ion-item>
+
+        </ion-list>
+        <div padding>
+          <button ion-button block type="submit" [disabled]="!myForm.valid">Login</button>
+        </div>
+
+      </form>
+      <div padding>
+        <button ion-button block (click)="goToSignUp()" class="btn btn-lg btn-primary btn-block btn-signin" >
+          Sign Up
+        </button>
+      </div>
     </div>
   </div>
 </ion-content>

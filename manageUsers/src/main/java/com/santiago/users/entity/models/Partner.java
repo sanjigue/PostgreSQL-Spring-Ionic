@@ -10,11 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -32,17 +34,22 @@ public class Partner implements Serializable{
 	@NotEmpty
 	private String name;
 	
-	@OneToOne(fetch = FetchType.LAZY,
+	@ManyToOne(fetch = FetchType.LAZY,
 	            cascade =  CascadeType.ALL)
-//	            ,
-//	            mappedBy = "partner")
 	@JoinColumn(name = "user_id")
 	@JsonIgnoreProperties({ "partner"})
 	private User user;
 
+	
 	@NotNull
 	@Column(name = "country_id")
 	private Integer countryId;
+	
+//	@ManyToOne()
+//	@JoinColumn(name="country_id")
+//	@NotNull
+//	private Country country;
+
 
 	@NotEmpty
 	private String email;
@@ -62,6 +69,7 @@ public class Partner implements Serializable{
 		this.name = name;
 		this.user = user;
 		this.countryId = countryId;
+		//this.country = country;
 		this.email = email;
 		this.phone = phone;
 		this.createUid = createUid;
@@ -102,6 +110,14 @@ public class Partner implements Serializable{
 	public void setCountryId(Integer countryId) {
 		this.countryId = countryId;
 	}
+	
+//	public Country getCountryId() {
+//		return country;
+//	}
+//
+//	public void setCountryId(Country country) {
+//		this.country = country;
+//	}
 
 	public Integer getCreateUid() {
 		return createUid;

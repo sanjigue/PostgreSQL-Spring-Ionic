@@ -9,4 +9,7 @@ import com.santiago.users.entity.models.User;
 public interface IUserDao extends CrudRepository<User, Long>{
 	@Transactional
 	Long deleteByPartnerId(long id);
+	
+	
+	
 }

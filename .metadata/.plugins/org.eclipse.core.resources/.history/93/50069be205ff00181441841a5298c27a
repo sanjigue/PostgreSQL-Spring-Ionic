@@ -1,0 +1,13 @@
+package com.santiago.users.entity.services;
+
+import java.util.List;
+
+import com.santiago.users.entity.models.AppUser;
+
+public interface IUserService {
+	public AppUser get(long id);
+	public List<AppUser> getAll();
+	public void post(AppUser user);
+	public void put(AppUser user,long id);
+	public void delete(long id);
+}

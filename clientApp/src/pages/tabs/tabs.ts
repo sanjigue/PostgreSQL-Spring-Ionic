@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, MenuController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { GalleryPage } from '../gallery/gallery';
 
@@ -20,8 +20,11 @@ export class TabsPage {
   partnersRoot = 'PartnersPage'
   usersRoot = 'UsersPage'
 
+  
 
-  constructor(public navCtrl: NavController, public menu: MenuController) {}
+  constructor(public navCtrl: NavController, public menu: MenuController, public navParams: NavParams) {
+    
+  }
 
   openMenu() {
     this.menu.open();

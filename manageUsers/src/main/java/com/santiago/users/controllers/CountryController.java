@@ -32,8 +32,6 @@ public class CountryController{
 		return countryService.get(id);
 	}
 	
-	
-	
 	@PostMapping("/country")
 	public void add(@RequestBody Country country) {
 		countryService.post(country);

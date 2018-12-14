@@ -1,0 +1,5 @@
+package com.santiago.users.entity.services;
+
+public class JpaUserDetailsService {
+
+}

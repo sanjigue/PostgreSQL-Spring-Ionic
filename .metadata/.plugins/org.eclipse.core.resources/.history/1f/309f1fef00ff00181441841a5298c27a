@@ -1,0 +1,17 @@
+package com.santiago.users.entity.dao;
+
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.santiago.users.entity.models.AppUser;
+
+public interface IUserDao extends CrudRepository<AppUser, Long>{
+	@Transactional
+	Long deleteByPartnerId(long id);
+	
+	@Transactional
+	Long findUserByUsername(long id);
+	
+	
+}

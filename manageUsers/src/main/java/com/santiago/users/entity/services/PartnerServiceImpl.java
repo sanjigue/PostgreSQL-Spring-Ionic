@@ -40,6 +40,7 @@ public class PartnerServiceImpl implements IPartnerService{
 		partnerDao.findById(id).ifPresent((x)->{
 			partner.setId(id);
 			partner.setUser(x.getUser());
+
 			partnerDao.save(partner);
 		});
 	}
