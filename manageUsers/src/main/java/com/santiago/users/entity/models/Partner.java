@@ -45,12 +45,6 @@ public class Partner implements Serializable{
 	@Column(name = "country_id")
 	private Integer countryId;
 	
-//	@ManyToOne()
-//	@JoinColumn(name="country_id")
-//	@NotNull
-//	private Country country;
-
-
 	@NotEmpty
 	private String email;
 	
@@ -61,6 +55,10 @@ public class Partner implements Serializable{
 	@Column(name = "create_uid")
 	private Integer createUid;
 	
+//	@ManyToOne()
+//	@JoinColumn(name="country_id")
+//	@NotNull
+//	private Country country;
 
 	public Partner(long id, @NotEmpty String name, User user, @NotNull Integer countryId, @NotEmpty String email,
 			@NotEmpty String phone, @NotNull Integer createUid) {

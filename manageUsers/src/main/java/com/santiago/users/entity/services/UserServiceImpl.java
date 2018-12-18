@@ -44,6 +44,7 @@ public class UserServiceImpl implements IUserService{
 	public void put(User user, long id) {
 		userDao.findById(id).ifPresent((x)->{
 			user.setId(id);
+			user.setPartner(x.getPartner());
 			userDao.save(user);
 		});
 	}

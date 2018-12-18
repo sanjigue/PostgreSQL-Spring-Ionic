@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { UserService } from '../../providers/user-service';
 
+import { LocalService} from '../../providers/local-service';
+
 /**
  * Generated class for the AddUserPage page.
  *
@@ -29,6 +31,8 @@ export class AddUserPage {
 
   };
 
+  userLocal: any = {login: '', password: ''};
+
   login: string;
   password: string;
   name: string;
@@ -39,7 +43,7 @@ export class AddUserPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public userService: UserService, public formBuilder: FormBuilder) {
+    public userService: UserService, public formBuilder: FormBuilder, public localService: LocalService) {
 
       this.myForm = this.createMyForm();
   }
@@ -54,10 +58,14 @@ export class AddUserPage {
     this.user = {
       login: this.login, password: this.password, partner: {
 
-        name: this.name, email: this.login, phone: this.phone, createUid: this.createUid, country: {id: this.countryId}
+        name: this.name, email: this.login, phone: this.phone, createUid: this.createUid, countryId: this.countryId
+      
       }
-
     };
+
+    this.userLocal={login: this.login, password: this.password};
+
+    //this.localService.create(this.userLocal);
 
     this.userService.add(this.user).subscribe(response => {
       console.log("Se añadio");

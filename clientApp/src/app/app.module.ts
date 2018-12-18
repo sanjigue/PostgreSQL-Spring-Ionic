@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 
+import { SQLite } from '@ionic-native/sqlite';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -21,6 +23,8 @@ import { UsersPageModule } from '../pages/users/users.module';
 import { AddUserPageModule } from '../pages/add-user/add-user.module';
 import { UpdateUserPageModule } from '../pages/update-user/update-user.module';
 import { UserService } from '../providers/user-service';
+
+import { LocalService } from '../providers/local-service';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,8 @@ import { UserService } from '../providers/user-service';
     UserService,
     StatusBar,
     SplashScreen,
+    SQLite,
+    LocalService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
